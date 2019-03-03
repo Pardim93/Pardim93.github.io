@@ -2,11 +2,12 @@
 layout: default
 ---
 
-    <ul class="wrapper">
+    <ul class="wrapper ">
         {% for post in site.posts %}
-        <li >
-            <h2 ><a href="{{ post.url }}" >{{ post.title }}</a></h2>
+        <li class="">
+            <h2 ><a href="{{ post.url }}" class="post-link">{{ post.title }}</a></h2>
             <p>{{ post.excerpt }}</p>
+            <hr class="style-two"> 
         </li>
         {% endfor %}
     </ul>
