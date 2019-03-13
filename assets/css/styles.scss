@@ -3,8 +3,10 @@
 
 *{
   list-style-type: none;
+  text-decoration: none;
   }
-/**
+
+  /**
  * Reset some basic elements
  */
  body, h1, h2, h3, h4, h5, h6,
@@ -30,6 +32,8 @@
    display: flex;
    min-height: 100vh;
    flex-direction: column; 
+   text-decoration: none;
+
   }
  
  /**
@@ -84,18 +88,15 @@
   * Links
   */
  a {
+
    color: #2a7ae2;
    text-decoration: none; }
    a:visited {
      color: #1756a9; }
    a:hover {
      color: #111;
-     text-decoration: underline; }
-   .social-media-list a:hover {
-     text-decoration: none; }
-     .social-media-list a:hover .username {
-       text-decoration: underline; }
- 
+   }
+   
  /**
   * Blockquotes
   */
@@ -196,12 +197,13 @@
   * Site header
   */
  .site-header {
-   border-top: 5px solid #424242;
-   border-bottom: 1px solid #e8e8e8;
+  //  border-top: 5px solid #424242;
+   border-bottom: 1px ridge blueviolet;
    border-right: 10px;
    min-height: 15.95px;
    position: relative;
    padding-right: 25px;
+
    .title{
      float:left;
   }
@@ -283,21 +285,14 @@
 * Footer
 */
 .site-footer{
-  height:25px;
-  border: 0.1px;
-  margin-left: 5%;
-  margin-right: 5%;
-  position: fixed;
   left: 0;
-  bottom: 0;
-  width: 90%;
+   bottom: 0;
+   height: 5px;
+   width: 100%;
+   text-align: center;
+  padding-top: 20%;
   color: black;
-  text-align: center;
-  border-color: black;
-  border-top-color: black;
-  border-top-style: groove;
-  background-color: lightcyan;
-}
+  }
  
    /**
   * Page content
