@@ -84,6 +84,9 @@
  h1, h2, h3, h4, h5, h6 {
    font-weight: 400; }
  
+   small{
+     font-size: 10px;
+   }
  /**
   * Links
   */
@@ -329,8 +332,8 @@
    color: #828282; }
  
  .post-link {
-   display: block;
-   font-size: 24px; }
+   display: unset;
+   font-size: 22px; }
  
  /**
   * Posts

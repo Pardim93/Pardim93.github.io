@@ -5,9 +5,14 @@ layout: default
     <ul >
         {% for post in site.posts %}
         <li class="">
-            <h2 ><a href="{{ post.url }}" class="post-link">{{ post.title }}</a></h2>
-            <p>{{ post.excerpt }}</p>
+            
+                  <h1><a href="{{ post.url }}" class="post-link">{{ post.title }}  </a> 
+                    </h1>
+           
+            <p>  {{ post.excerpt }}    </p><small> {{ post.date |  date: "%d/%m/%Y"  }} </small>
+            
             <hr class="style-two"> 
+
         </li>
         {% endfor %}
     </ul>
