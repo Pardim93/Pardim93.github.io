@@ -290,29 +290,20 @@
 /**
 * Footer
 */
-.site-footer{
-	left: 0;
-	 bottom: 0;
-	 height: 5px;
-	 width: 100%;
-	 text-align: center;
-	padding-top: 20%;
-	color: black;
-	}
  
 	 /**
 	* Page content
 	*/
 
-	hr.style-two {
+hr.style-two {
 		border: 0;
 		height: 1px;
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
  .page-content {
-	 padding: 30px 0;
-	 flex: 1; 
+	padding: 30px 0;
+	flex: 1; 
 	margin-top: 15px;
 	padding-top: 15px;
 	border-top: 15px;
@@ -511,4 +502,19 @@
 		 color: #008080; }
 	 .highlight .il {
 		 color: #099; }
- 
+
+.site-footer{
+	left: 0;
+    bottom: 0;
+	position: fixed;
+	height: 33px;
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+	color: black;
+	background-color: white;
+}
+		
+#footer-signature{
+	padding-top: 5px;
+}
