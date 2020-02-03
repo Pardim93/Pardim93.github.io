@@ -141,17 +141,17 @@
 	* Wrapper
 	*/
  .wrapper {
-	 max-width: -webkit-calc(800px - (30px * 2));
-	 max-width: calc(800px - (30px * 2));
+	 max-width: -webkit-calc(900px - (30px * 2));
+	 max-width: calc(900px - (30px * 2));
 	 margin-right: auto;
-	 margin-left: auto;
+	 margin-left: 20px;
 	 padding-right: 30px;
 	 padding-left: 30px; 
 	 margin-top: 30px;
 	 }
-	 @media screen and (max-width: 800px) {
+	 @media screen and (max-width: 900px) {
 		 .wrapper {
-			 max-width: -webkit-calc(800px - (30px));
+			 max-width: -webkit-calc(900px - (30px));
 			 max-width: calc(800px - (30px));
 			 padding-right: 15px;
 			 padding-left: 15px; } }
@@ -302,11 +302,13 @@ hr.style-two {
 }
 
  .page-content {
-	padding: 30px 0;
+	padding:auto;
 	flex: 1; 
+	margin: auto;
 	margin-top: 15px;
 	padding-top: 15px;
-	border-top: 15px;
+
+	width:900px;
 	}
  
  .page-heading {
@@ -516,4 +518,13 @@ hr.style-two {
 	#footer-signature{
 		padding-top: 5px;
 	}
+}
+
+#disqus_thread{
+	left: 0;
+	bottom: 0;
+	margin: auto;
+	margin-left: 30px;
+	height: 33px;
+	width: 100%;
 }
