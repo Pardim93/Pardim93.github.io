@@ -1,6 +1,6 @@
 ---
 layout: post
-author: pardim
+author: Wellington Pardim
 title:  "Perigos do PHP extract()"
 categories: "php security"
 position: 2

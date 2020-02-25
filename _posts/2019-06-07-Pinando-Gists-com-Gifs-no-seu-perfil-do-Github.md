@@ -1,6 +1,6 @@
 ---
 layout: post
-author: pardim
+author: Wellington Pardim
 position: 1
 ---
 O Github adicionou uma nova funcionalidade onde é possível "pinar" seus Gists ao seu perfil. Desta maneira, todo seus projetos que se encontram no Gist podem ser colocados no seu perfil.
@@ -20,7 +20,8 @@ Com o seu gist criado, o que você precisa fazer agora para adicionar o gif, é 
 <br>
 Note que o arquivo antigo foi removido e o gif foi introduzido.
 Vá na sua página Gist e perceba que o arquivo foi atualizado com o gif. Para pinar o gif no seu perfil, vá para o seu perfil do Github, e selecione a opção customize your pins, escolha o gist que você acabou de criar e voilá:<br>
-![Exemplo de um Currículo no Github](/assets/images/post/{{ page.position }}/pinando_gists_image1.png)
+![Exemplo de um Currículo no Github](/assets/images/post/{{ page.position }}/
+pinando_gists_image1.png)
 <br><br>
 Seu perfil acaba de ficar mais interessante.
 Caso queira, você também pode adicionar um currículo ao seu perfil. Utilize algum template caso queira, e após isso é só você adicionar o arquivo ao seu perfil. Note que para arquivos com markdown, você não irá precisar fazer o clone na sua máquina, pois você poderá editar o arquivo diretamente do Gist, caso queira.
