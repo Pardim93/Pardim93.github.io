@@ -1,3 +1,4 @@
+
 ---
 layout: post
 author: Wellington Pardim
@@ -39,7 +40,7 @@ Em hashing pode ocorrer colisões, ou seja, inputs diferentes podem gerar os mes
 Por isso já é considerado usar hashings com alta colisão como md5 e SHA-1.
 
 **Salting**
-Salting é a técnica de adicionar caractéres em um input, para que ele tenha uma saída diferente do que a original. Isso é util para prevenir ataques de força bruta. Tendo acesso as senhas mais usadas na internet, eu poderia utilizar um dicionário para tentar essas senhas um por uma com um bot, mas com o uso de salting isso inviabiliza esse tipo de ataque. Já que uma senha famosa como 'password', tendo um salt como 'XYZ', ou seja, 'passwordXYX' teria uma saida diferente do que só a hash do 'password'. 
+Salting é a técnica de adicionar caractéres em um input, para que ele tenha uma saída diferente do que a original. Isso é util para prevenir ataques de força bruta. Tendo acesso as senhas mais usadas na internet, eu poderia utilizar um dicionário para tentar essas senhas um por uma com um bot, mas com o uso de salting isso inviabiliza esse tipo de ataque. Já que uma senha famosa como 'password', tendo um salt como 'XYZ', ou seja, 'passwordXYX' teria uma saida diferente do que só a hash do 'password'. É também recomendável que o salt seja diferente para cada hashing que você faz.
 
 Em resumo:
 
