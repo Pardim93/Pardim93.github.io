@@ -1,14 +1,20 @@
 ---
 layout: default
+title: Home
 ---
-<ul>
-    {% for post in site.posts %}
-    <li class="">
-        <h1>
-            <a href="{{ post.url }}" class="post-link">{{ post.title }}</a>
-        </h1>
-        <p>  {{ post.excerpt }} </p> </small>
-        <hr class="style-four"> 
+
+<h1>Snake Code</h1>
+<p>Backend engineering notes, system design case studies, and productivity experiments.</p>
+
+<h2>Recent Posts</h2>
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+      {% if post.excerpt %}
+        <div class="excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+      {% endif %}
     </li>
-    {% endfor %}
+  {% endfor %}
 </ul>
