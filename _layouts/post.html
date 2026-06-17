@@ -1,16 +1,18 @@
+---
+layout: default
+---
 <article class="post">
   <header class="post-header">
-    <h1 class="post-title">Hashing e Encriptação: suas diferenças</h1>
+    <p class="eyebrow">{{ page.categories }}</p>
+    <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-meta">
-      <span>Wellington Pardim</span>
-      <span>•</span>
-      <span>Security</span>
+      <span>{{ page.author }}</span>
+      <span>·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time>
     </div>
   </header>
 
   <div class="post-content">
-    <p>Quando lidando com segurança...</p>
-
-    <pre><code>echo "exemplo";</code></pre>
+    {{ content }}
   </div>
 </article>
