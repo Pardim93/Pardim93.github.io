@@ -1,25 +1,31 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>{{ site.title }}</title>
-	<link rel="stylesheet" href="/assets/css/styles.css">
-	<link rel="shortcut icon" href=" https://img.icons8.com/office/16/000000/enter-key.png">
-	<link href="https://fonts.googleapis.com/css?family=Oswald|Roboto:300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% seo %}
+  {% feed_meta %}
 </head>
-
 <body>
-	{% include navigation.html %}
-	<div class="wrapper">
-		{{content }}
-	</div>
-	<div class="site-footer">
-		<hr>
-		<p id='footer-signature'> Copyright © <span class="copyright-year">{{ "now" | date: "%Y" }} </span> | Wellington
-			Pardim</p>
-		<hr>
-	</div>
-</body>
+  <header>
+    <nav>
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <div class="nav-links">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/about' | relative_url }}">About</a>
+        <a href="{{ '/now' | relative_url }}">Now</a>
+      </div>
+    </nav>
+  </header>
 
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>Built with Jekyll &mdash; <a href="https://github.com/Pardim93/Pardim93.github.io">View source</a></p>
+  </footer>
+</body>
 </html>
