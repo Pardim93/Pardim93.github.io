@@ -1,5 +1,4 @@
-\---
-
+---
 layout: post
 author: Wellington Pardim
 title:  "Hashing e Encriptação: suas diferenças"
