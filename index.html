@@ -1,20 +1,29 @@
 ---
 layout: default
-title: Home
+title: Snake Code
 ---
 
-<h1>Snake Code</h1>
-<p>Backend engineering notes, system design case studies, and productivity experiments.</p>
+<section class="hero">
+  <p class="eyebrow">Snake Code</p>
+  <h1>Backend, segurança e notas de engenharia de software.</h1>
+  <p class="hero-copy">Um arquivo pessoal de artigos sobre PHP, hashing, arquitetura, programação e experimentos práticos de produtividade.</p>
+</section>
 
-<h2>Recent Posts</h2>
-<ul class="post-list">
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-      {% if post.excerpt %}
-        <div class="excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</div>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+<section class="home-section">
+  <div class="section-head">
+    <h2>Artigos recentes</h2>
+    <p>Textos antigos, mas ainda úteis — agora com uma apresentação melhor.</p>
+  </div>
+
+  <div class="post-feed">
+    {% for post in site.posts %}
+      <article class="post-card">
+        <p class="post-card-meta">{{ post.date | date: "%d/%m/%Y" }} · {{ post.categories | join: ", " }}</p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.excerpt %}
+          <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
