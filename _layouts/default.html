@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% seo %}
-  {% feed_meta %}
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-      <div class="nav-links">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/about' | relative_url }}">About</a>
-        <a href="{{ '/now' | relative_url }}">Now</a>
-      </div>
-    </nav>
+  <a class="skip-link" href="#content">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="wrapper">
+      <a class="site-title" href="{{ '/' | relative_url }}">Snake<span>Code</span></a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="{{ '/' | relative_url }}">Início</a>
+        <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="content" class="wrapper">
     {{ content }}
   </main>
 
-  <footer>
-    <p>Built with Jekyll &mdash; <a href="https://github.com/Pardim93/Pardim93.github.io">View source</a></p>
+  <footer class="site-footer wrapper">
+    <p>© {{ site.time | date: '%Y' }} Wellington Pardim · Snake Code</p>
   </footer>
 </body>
 </html>
