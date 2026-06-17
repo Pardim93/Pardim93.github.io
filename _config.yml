@@ -1,27 +1,36 @@
-# Minimal custom theme - no default Jekyll theme
-title: "Pardim93 "
-description: "My blog for Articles and Projects"
+title: "Snake Code"
+description: "Artigos sobre backend, segurança, programação e experimentos de produtividade."
 author: "Wellington Pardim"
 url: "https://pardim93.github.io"
 baseurl: ""
+lang: "pt-BR"
+permalink: /:year/:month/:day/:title.html
 
-# Plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# Build settings
 markdown: kramdown
 highlighter: rouge
 
-# SEO / Social
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 social:
   name: Wellington Pardim
   links:
     - https://github.com/Pardim93
 
-# Exclude files
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: Wellington Pardim
+
 exclude:
   - README.md
   - Gemfile
