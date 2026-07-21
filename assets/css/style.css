@@ -20,28 +20,21 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.22);
   --blockquote-bg: rgba(88, 166, 255, 0.06);
   --selection-bg: rgba(88, 166, 255, 0.28);
-}
 
-[data-theme="terminal"] {
-  --bg: #0a0e14;
-  --surface: #111820;
-  --surface-2: #0d1117;
-  --border: #1d2430;
-  --text: #b3b1ad;
-  --text-muted: #626a73;
-  --text-faint: #4a5058;
-  --accent: #39c5bb;
-  --accent-2: #e6b450;
-  --accent-hover: #5ce0d6;
-  --danger: #f07178;
-  --code-bg: #0d1117;
-  --code-text: #b3b1ad;
-  --header-bg: #0a0e14;
-  --header-border: #1d2430;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --blockquote-bg: rgba(57, 197, 187, 0.06);
-  --selection-bg: rgba(57, 197, 187, 0.25);
+  --syn-keyword: #ff7b72;
+  --syn-string: #a5d6ff;
+  --syn-comment: #8b949e;
+  --syn-function: #d2a8ff;
+  --syn-number: #79c0ff;
+  --syn-operator: #ff7b72;
+  --syn-class: #ffa657;
+  --syn-variable: #ffa657;
+  --syn-constant: #79c0ff;
+  --syn-tag: #7ee787;
+  --syn-attr: #79c0ff;
+  --syn-builtin: #ffa657;
+  --syn-regex: #a5d6ff;
+  --syn-error: #f85149;
 }
 
 [data-theme="warm-light"] {
@@ -64,72 +57,21 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
   --blockquote-bg: rgba(232, 89, 12, 0.05);
   --selection-bg: rgba(232, 89, 12, 0.15);
-}
 
-[data-theme="cyberpunk"] {
-  --bg: #0f0e17;
-  --surface: #1a1830;
-  --surface-2: #141225;
-  --border: #2a2650;
-  --text: #e4e0d7;
-  --text-muted: #a09bb0;
-  --text-faint: #6e6890;
-  --accent: #ff6e96;
-  --accent-2: #78dce8;
-  --accent-hover: #ff8fb1;
-  --danger: #ff4757;
-  --code-bg: #141225;
-  --code-text: #e4e0d7;
-  --header-bg: #0f0e17;
-  --header-border: #2a2650;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --blockquote-bg: rgba(120, 220, 232, 0.06);
-  --selection-bg: rgba(255, 110, 150, 0.25);
-}
-
-[data-theme="solarized"] {
-  --bg: #002b36;
-  --surface: #073642;
-  --surface-2: #073642;
-  --border: #0a4050;
-  --text: #839496;
-  --text-muted: #586e75;
-  --text-faint: #445459;
-  --accent: #268bd2;
-  --accent-2: #2aa198;
-  --accent-hover: #49a5e0;
-  --danger: #dc322f;
-  --code-bg: #073642;
-  --code-text: #93a1a1;
-  --header-bg: #002b36;
-  --header-border: #0a4050;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
-  --blockquote-bg: rgba(38, 139, 210, 0.08);
-  --selection-bg: rgba(38, 139, 210, 0.25);
-}
-
-[data-theme="nordic"] {
-  --bg: #2e3440;
-  --surface: #3b4252;
-  --surface-2: #353c4a;
-  --border: #434c5e;
-  --text: #eceff4;
-  --text-muted: #a0aabe;
-  --text-faint: #7b88a1;
-  --accent: #88c0d0;
-  --accent-2: #a3be8c;
-  --accent-hover: #8fbcbb;
-  --danger: #bf616a;
-  --code-bg: #2e3440;
-  --code-text: #eceff4;
-  --header-bg: #2e3440;
-  --header-border: #434c5e;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
-  --blockquote-bg: rgba(136, 192, 208, 0.08);
-  --selection-bg: rgba(136, 192, 208, 0.25);
+  --syn-keyword: #cf222e;
+  --syn-string: #0a3069;
+  --syn-comment: #6e7781;
+  --syn-function: #8250df;
+  --syn-number: #0550ae;
+  --syn-operator: #cf222e;
+  --syn-class: #953800;
+  --syn-variable: #953800;
+  --syn-constant: #0550ae;
+  --syn-tag: #116329;
+  --syn-attr: #0550ae;
+  --syn-builtin: #953800;
+  --syn-regex: #0a3069;
+  --syn-error: #a40e26;
 }
 
 /* ── Layout constants ── */
@@ -630,6 +572,78 @@ pre code {
   font-size: 0.88rem;
 }
 
+/* ── Syntax highlighting ── */
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr,
+.highlight .kc, .highlight .kt, .highlight .kv {
+  color: var(--syn-keyword);
+  font-weight: bold;
+}
+
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc,
+.highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx,
+.highlight .dl {
+  color: var(--syn-string);
+}
+
+.highlight .sr {
+  color: var(--syn-regex);
+}
+
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs, .highlight .cp,
+.highlight .ch, .highlight .cd {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+.highlight .nf, .highlight .fm {
+  color: var(--syn-function);
+}
+
+.highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .il {
+  color: var(--syn-number);
+}
+
+.highlight .o, .highlight .ow {
+  color: var(--syn-operator);
+}
+
+.highlight .nc, .highlight .nn {
+  color: var(--syn-class);
+}
+
+.highlight .nv, .highlight .vi, .highlight .vc, .highlight .vg, .highlight .vm {
+  color: var(--syn-variable);
+}
+
+.highlight .no, .highlight .na {
+  color: var(--syn-attr);
+}
+
+.highlight .nb, .highlight .bp {
+  color: var(--syn-builtin);
+}
+
+.highlight .nt {
+  color: var(--syn-tag);
+}
+
+.highlight .ni, .highlight .ne {
+  color: var(--syn-constant);
+}
+
+.highlight .ge {
+  font-style: italic;
+}
+
+.highlight .gs {
+  font-weight: bold;
+}
+
+.highlight .err {
+  color: var(--syn-error);
+  background: transparent;
+}
+
 /* ── Tables ── */
 table {
   width: 100%;
@@ -955,28 +969,43 @@ button:focus-visible {
   border: 0;
 }
 
-/* ── Theme switcher ── */
-.theme-switcher {
+/* ── Theme toggle ── */
+.theme-toggle {
   appearance: none;
   -webkit-appearance: none;
-  background: var(--surface);
+  background: none;
   color: var(--text-muted);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 4px 8px;
-  font-size: 0.8rem;
-  font-family: var(--font-body);
+  padding: 5px 8px;
+  font-size: 1rem;
+  line-height: 1;
   cursor: pointer;
-  outline: none;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, color 0.15s;
 }
 
-.theme-switcher:hover {
+.theme-toggle:hover {
   border-color: var(--accent);
   color: var(--text);
 }
 
-.theme-switcher:focus-visible {
+.theme-toggle:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle .icon-moon {
+  display: inline;
+}
+
+[data-theme="warm-light"] .theme-toggle .icon-sun {
+  display: inline;
+}
+
+[data-theme="warm-light"] .theme-toggle .icon-moon {
+  display: none;
 }

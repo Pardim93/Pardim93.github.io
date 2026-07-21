@@ -30,14 +30,10 @@
         <a href="{{ '/about' | relative_url }}"{% if page.url == '/about' %} class="active"{% endif %}>Sobre</a>
         <a href="{{ '/projects' | relative_url }}"{% if page.url == '/projects' %} class="active"{% endif %}>Projetos</a>
         <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <select id="theme-switcher" class="theme-switcher" aria-label="Tema">
-          <option value="github">GitHub Dark</option>
-          <option value="terminal">Terminal</option>
-          <option value="warm-light">Warm Light</option>
-          <option value="cyberpunk">Cyberpunk</option>
-          <option value="solarized">Solarized</option>
-          <option value="nordic">Nordic</option>
-        </select>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" title="Alternar tema">
+          <span class="icon-sun" aria-hidden="true">&#9788;</span>
+          <span class="icon-moon" aria-hidden="true">&#9789;</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -58,18 +54,18 @@
 
   <script>
     (function() {
-      var sel = document.getElementById('theme-switcher');
+      var btn = document.getElementById('theme-toggle');
       var current = localStorage.getItem('theme') || 'github';
-      sel.value = current;
 
-      sel.addEventListener('change', function() {
-        var theme = this.value;
-        if (theme === 'github') {
+      btn.addEventListener('click', function() {
+        var next = current === 'github' ? 'warm-light' : 'github';
+        if (next === 'github') {
           document.documentElement.removeAttribute('data-theme');
         } else {
-          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.setAttribute('data-theme', next);
         }
-        localStorage.setItem('theme', theme);
+        localStorage.setItem('theme', next);
+        current = next;
       });
     })();
   </script>
