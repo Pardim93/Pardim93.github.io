@@ -142,6 +142,7 @@ Opções:
 
 Para tabelas grandes, processe apenas dados novos:
 
+{% raw %}
 ```sql
 -- models/marts/fct_eventos.sql
 {{
@@ -162,6 +163,7 @@ from {{ ref('stg_eventos') }}
   where timestamp > (select max(timestamp) from {{ this }})
 {% endif %}
 ```
+{% endraw %}
 
 ## Testes
 
@@ -215,6 +217,7 @@ Isso abre uma interface web em `localhost:8080` com:
 
 ## Macros: SQL reutilizável
 
+{% raw %}
 ```sql
 -- macros/formata_moeda.sql
 {% macro formata_moeda(coluna) %}
@@ -227,6 +230,7 @@ select
     {{ formata_moeda('valor') }} as valor_formatado
 from {{ ref('stg_pedidos') }}
 ```
+{% endraw %}
 
 ## Comandos essenciais
 
