@@ -7,6 +7,12 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   {% seo %}
 </head>
 <body>
@@ -24,6 +30,14 @@
         <a href="{{ '/about' | relative_url }}"{% if page.url == '/about' %} class="active"{% endif %}>Sobre</a>
         <a href="{{ '/projects' | relative_url }}"{% if page.url == '/projects' %} class="active"{% endif %}>Projetos</a>
         <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <select id="theme-switcher" class="theme-switcher" aria-label="Tema">
+          <option value="github">GitHub Dark</option>
+          <option value="terminal">Terminal</option>
+          <option value="warm-light">Warm Light</option>
+          <option value="cyberpunk">Cyberpunk</option>
+          <option value="solarized">Solarized</option>
+          <option value="nordic">Nordic</option>
+        </select>
       </nav>
     </div>
   </header>
@@ -41,5 +55,23 @@
       </nav>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var sel = document.getElementById('theme-switcher');
+      var current = localStorage.getItem('theme') || 'github';
+      sel.value = current;
+
+      sel.addEventListener('change', function() {
+        var theme = this.value;
+        if (theme === 'github') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        localStorage.setItem('theme', theme);
+      });
+    })();
+  </script>
 </body>
 </html>
