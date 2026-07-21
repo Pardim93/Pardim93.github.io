@@ -2,15 +2,72 @@
 layout: default
 title: Pardim93
 ---
-<section class="home-section">
+<section class="hero">
+  <h1>Snake<span>Code</span></h1>
+  <p>Artigos sobre backend, segurança, programação, dados e experimentos de produtividade. Por Wellington Pardim.</p>
+</section>
+
+<div class="category-filters">
+  <a href="#" class="category-pill active" data-category="all">Todos</a>
+  <a href="#" class="category-pill" data-category="python">Python</a>
+  <a href="#" class="category-pill" data-category="go">Go</a>
+  <a href="#" class="category-pill" data-category="security">Security</a>
+  <a href="#" class="category-pill" data-category="mobile">Mobile</a>
+  <a href="#" class="category-pill" data-category="data-engineering">Data</a>
+  <a href="#" class="category-pill" data-category="ai">AI</a>
+  <a href="#" class="category-pill" data-category="docker">Docker</a>
+</div>
+
+{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in posts_by_year %}
+<section class="year-section">
+  <h2 class="year-heading">{{ year.name }}</h2>
   <div class="post-feed">
-    {% for post in site.posts %}
-      <article class="post-card">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {% if post.excerpt %}
-          <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+    {% for post in year.items %}
+    <article class="post-card" data-categories="{{ post.categories | join: ',' }}">
+      <div class="post-card-meta">
+        <span class="post-card-date">{{ post.date | date: "%d/%m" }}</span>
+        {% if post.categories.size > 0 %}
+          <span class="post-card-category">{{ post.categories | first }}</span>
         {% endif %}
-      </article>
+      </div>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      {% if post.excerpt %}
+        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+      {% endif %}
+    </article>
     {% endfor %}
   </div>
 </section>
+{% endfor %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var pills = document.querySelectorAll('.category-pill');
+  var cards = document.querySelectorAll('.post-card');
+  var years = document.querySelectorAll('.year-section');
+
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function(e) {
+      e.preventDefault();
+      pills.forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+
+      var cat = pill.getAttribute('data-category');
+
+      cards.forEach(function(card) {
+        if (cat === 'all' || card.getAttribute('data-categories').indexOf(cat) !== -1) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      years.forEach(function(year) {
+        var visible = year.querySelectorAll('.post-card:not([style*="display: none"])');
+        year.style.display = visible.length ? '' : 'none';
+      });
+    });
+  });
+});
+</script>

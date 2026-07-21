@@ -6,25 +6,40 @@
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
   {% seo %}
 </head>
 <body>
   <header class="site-header">
-    <div class="wrapper">
+    <div class="header-inner">
       <a class="site-title" href="{{ '/' | relative_url }}">Snake<span>Code</span></a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <label for="nav-toggle" class="nav-hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
       <nav class="site-nav" aria-label="Principal">
-        <a href="{{ '/' | relative_url }}">Início</a>
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Início</a>
+        <a href="{{ '/about' | relative_url }}"{% if page.url == '/about' %} class="active"{% endif %}>Sobre</a>
+        <a href="{{ '/projects' | relative_url }}"{% if page.url == '/projects' %} class="active"{% endif %}>Projetos</a>
         <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>
   </header>
 
-  <main id="content" class="wrapper">
+  <main id="content">
     {{ content }}
   </main>
 
-  <footer class="site-footer wrapper">
-    <p>© {{ site.time | date: '%Y' }} Wellington Pardim · Snake Code</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; {{ site.time | date: '%Y' }} Wellington Pardim &middot; Snake Code</p>
+      <nav class="footer-nav" aria-label="Rodapé">
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

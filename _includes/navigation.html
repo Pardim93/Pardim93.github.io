@@ -1,8 +1,0 @@
-<div class="site-header">
-  <div class="title site-title">
-    <a href="/"> {{ site.title }}</a>
-  </div>
-    {% for item in site.data.navigation %}
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }} /</a>
-    {% endfor %}
-</div>
