@@ -5,6 +5,8 @@ email: "wellington@pardim.dev"
 url: "https://pardim93.github.io"
 baseurl: ""
 lang: "pt-BR"
+default_lang: pt
+languages: [pt, en]
 permalink: /:year/:month/:day/:title.html
 
 plugins:
@@ -31,6 +33,16 @@ defaults:
     values:
       layout: post
       author: Wellington Pardim
+  - scope:
+      path: "_posts/pt"
+      type: "posts"
+    values:
+      lang: pt
+  - scope:
+      path: "_posts/en"
+      type: "posts"
+    values:
+      lang: en
 
 exclude:
   - README.md

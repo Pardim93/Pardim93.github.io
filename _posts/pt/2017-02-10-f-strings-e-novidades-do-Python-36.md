@@ -4,6 +4,7 @@ author: Wellington Pardim
 title:  "f-strings e outras novidades do Python 3.6"
 categories: "python"
 position: 8
+translation: /en/2017/02/10/python-36-f-strings.html
 ---
 
 O Python 3.6 trouxe várias melhorias que tornaram o código mais legível e Pythonico. A mais popular delas são as **f-strings**, mas há outros recursos que valem a pena conhecer.

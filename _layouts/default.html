@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{% if page.lang %}{{ page.lang }}{% else %}{{ site.default_lang }}{% endif %}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="Snake Code (PT)" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="Snake Code (EN)" href="{{ '/en/feed.xml' | relative_url }}" hreflang="en">
   <script>
     (function() {
       var t = localStorage.getItem('theme');
@@ -26,9 +27,16 @@
       </label>
 
       <nav class="site-nav" aria-label="Principal">
-        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Início</a>
-        <a href="{{ '/about' | relative_url }}"{% if page.url == '/about' %} class="active"{% endif %}>Sobre</a>
-        <a href="{{ '/projects' | relative_url }}"{% if page.url == '/projects' %} class="active"{% endif %}>Projetos</a>
+        {% if page.lang == 'en' %}
+          <a href="{{ '/en/' | relative_url }}"{% if page.url == '/en/' %} class="active"{% endif %}>Home</a>
+          <a href="{{ '/en/projects' | relative_url }}"{% if page.url == '/en/projects' %} class="active"{% endif %}>Projects</a>
+          <a href="{{ '/' | relative_url }}" class="lang-link" title="Português">PT</a>
+        {% else %}
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Início</a>
+          <a href="{{ '/about' | relative_url }}"{% if page.url == '/about' %} class="active"{% endif %}>Sobre</a>
+          <a href="{{ '/projects' | relative_url }}"{% if page.url == '/projects' %} class="active"{% endif %}>Projetos</a>
+          <a href="{{ '/en/' | relative_url }}" class="lang-link" title="English">EN</a>
+        {% endif %}
         <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" title="Alternar tema">
           <span class="icon-sun" aria-hidden="true">&#9788;</span>
@@ -46,7 +54,11 @@
     <div class="footer-inner">
       <p>&copy; {{ site.time | date: '%Y' }} Wellington Pardim &middot; Snake Code</p>
       <nav class="footer-nav" aria-label="Rodapé">
-        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        {% if page.lang == 'en' %}
+          <a href="{{ '/en/feed.xml' | relative_url }}">RSS</a>
+        {% else %}
+          <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        {% endif %}
         <a href="https://github.com/Pardim93" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>

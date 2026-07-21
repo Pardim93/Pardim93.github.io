@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Pardim93
-lang: pt
+title: Home
+lang: en
 ---
 <section class="hero">
   <h1>Snake<span>Code</span></h1>
-  <p>Artigos sobre backend, segurança, programação, dados e experimentos de produtividade. Por Wellington Pardim.</p>
+  <p>Articles about backend, security, programming, data engineering and productivity experiments. By Wellington Pardim.</p>
 </section>
 
 <div class="category-filters">
-  <a href="#" class="category-pill active" data-category="all">Todos</a>
+  <a href="#" class="category-pill active" data-category="all">All</a>
   <a href="#" class="category-pill" data-category="python">Python</a>
   <a href="#" class="category-pill" data-category="go">Go</a>
   <a href="#" class="category-pill" data-category="security">Security</a>
@@ -19,29 +19,33 @@ lang: pt
   <a href="#" class="category-pill" data-category="docker">Docker</a>
 </div>
 
-{% assign lang_posts = site.posts | where: "lang", "pt" %}
-{% assign posts_by_year = lang_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-{% for year in posts_by_year %}
-<section class="year-section">
-  <h2 class="year-heading">{{ year.name }}</h2>
-  <div class="post-feed">
-    {% for post in year.items %}
-    <article class="post-card" data-categories="{{ post.categories | join: ',' }}">
-      <div class="post-card-meta">
-        <span class="post-card-date">{{ post.date | date: "%d/%m" }}</span>
-        {% if post.categories.size > 0 %}
-          <span class="post-card-category">{{ post.categories | first }}</span>
+{% assign lang_posts = site.posts | where: "lang", "en" %}
+{% if lang_posts.size == 0 %}
+  <p style="color: var(--text-muted); margin-top: 32px;">No posts translated yet. Check back soon or <a href="{{ '/' | relative_url }}">read in Portuguese</a>.</p>
+{% else %}
+  {% assign posts_by_year = lang_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in posts_by_year %}
+  <section class="year-section">
+    <h2 class="year-heading">{{ year.name }}</h2>
+    <div class="post-feed">
+      {% for post in year.items %}
+      <article class="post-card" data-categories="{{ post.categories | join: ',' }}">
+        <div class="post-card-meta">
+          <span class="post-card-date">{{ post.date | date: "%m/%d" }}</span>
+          {% if post.categories.size > 0 %}
+            <span class="post-card-category">{{ post.categories | first }}</span>
+          {% endif %}
+        </div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.excerpt %}
+          <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
         {% endif %}
-      </div>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      {% if post.excerpt %}
-        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
-      {% endif %}
-    </article>
-    {% endfor %}
-  </div>
-</section>
-{% endfor %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+{% endif %}
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
